@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>controle de tempo</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.cdnfonts.com/css/segment7" rel="stylesheet">
+</head>
+<body>
+    <h2 id="relogio"></h2>
+    <script>
+        function AtualizarRelogio(){
+            const agora = new Date();
+            const horas = agora.getHours().toString();
+            const minut = agora.getMinutes().toString();
+            const segun = agora.getSeconds().toString();
+
+            document.getElementById("relogio").innerText = `${horas}:${minut}:${segun}`;
+        }
+
+        setInterval(AtualizarRelogio, 1000);
+        AtualizarRelogio();
+
+    </script>
+    <hr>
+    <h2 id="timer">00:00:00</h2>
+    <button onclick="iniciar()">Iniciar</button>
+    <script>
+        let segundos = 0;
+        let intervalo;
+
+        function formatar (segundos) {
+            const h = String (Math.floor(segundos/3600));
+            const m = String (Math.floor((segundos % 3600)/60));
+            const s = String(segundos % 60);
+            return `${h}:${m}:${s}`;
+        }   
+        function atualizarTimer() {
+            document.getElementById("timer").innerText = formatar (segundos);
+        }
+        function iniciar(){
+            if(!intervalo) {
+                intervalo = setInterval(() => {
+                    segundos++;
+                    atualizarTimer();
+                }, 1000);
+            }
+        }
+
+    </script>
+</body>
+</html>

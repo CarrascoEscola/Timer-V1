@@ -1,0 +1,35 @@
+@font-face {
+    font-family: 'Segment7', monospace;
+    src: url('https://fonts.cdnfonts.com/s/16237/Digital7.woff') format('woff');
+}
+
+
+body {
+    background-color: #000;
+    color: #FF0000;
+    font-family: 'Segment7', monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+#relogio, #timer {
+    font-size: 5em;
+}
+
+/* Botões */
+button {
+    background-color: #111;
+    color: #FF0000;
+    border: 2px solid #FF0000;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #222;
+}
